@@ -1,6 +1,6 @@
 This is the project capstone for the course Getting and Cleaning Data from Coursera.
 
-<strong>Note that I used a lot of help from benjamin-chan's project, you can find his project here in GitHub by searching "benjamin-chan" (his user name).</strong>
+<strong>Note that I used a lot of help from benjamin-chan's project, you can find his project here in GitHub by searching "benjamin-chan" (his user name). So you can say my project is strongly based on his.</strong>
 
 The script "run_analysis.R" works as follow (note that inside the scripts there are comments describing it's functionality):
 
