@@ -1,7 +1,9 @@
 ##Download the file in your path, hence getwd() for the path variable
+packages <- c("data.table", "knitr", "markdown", "memisc")
+sapply(packages, require, character.only = TRUE, quietly = TRUE)
 library(data.table)
-library(knitr)
-library(markdown)
+#Package used to generate the Codebook
+library(memisc)
 path <- getwd()
 url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 destFile <- "ProjectDataSet.zip"
@@ -79,7 +81,11 @@ r2 <- nrow(dt[, .N, by = c("featDomain", "featAcceleration", "featInstrument",
                            "featJerk", "featMagnitude", "featVariable", "featAxis")])
 r1 == r2
 
+##Generate the tidy set
 setkey(dt, subject, activity, featDomain, featAcceleration, featInstrument, 
        featJerk, featMagnitude, featVariable, featAxis)
 dtTidy2 <- dt[, list(count = .N, average = mean(value)), by = key(dt)]
 View(dtTidy2)
+
+##Using package memisc
+codebook(dtTidy2)
